@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="flex-row lg:flex justify-between items-center">
+    <div className="flex-row lg:flex justify-between items-center bg-[#222630] rounded-xl p-5 border-3 border-[#1C1F26]">
       {/* left side */}
       <div className="space-y-3">
-        <h5 className="text [12px] font-bold text-[#C2F800]">
+        <h5 className="text [12px] font-bold text-[#9CA3AF]">
           WORKOUT LIBRARY
         </h5>
         <h1 className="font-extrabold text-[60px] text-white">
