@@ -14,7 +14,7 @@ const Navbar = () => {
   };
   const pathname = usePathname();
   return (
-    <div className="relative border-b-3 border-[#1C1F26] pb-2">
+    <div className="sticky top-0 left-0 right-0 z-50 relative border-b-3 border-[#1C1F26] pb-2">
       <div className="flex justify-between items-center">
         <button className="sm:hidden text-2xl" onClick={handleMenuButton}>
           {menuOpen ? <IoCloseSharp /> : <MdOutlineMenu />}
@@ -58,7 +58,7 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu */}{" "}
       {menuOpen && (
-        <div className="sm:hidden mt-4 ml-4">
+        <div className="sm:hidden mt-4 ml-4 w-[100px]">
           <ul className="flex flex-col gap-4 text-[#9CA3AF] text-[14px] font-medium">
             <Link href={"/"}>
               <li

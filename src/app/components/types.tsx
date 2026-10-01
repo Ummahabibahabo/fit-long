@@ -1,4 +1,4 @@
-interface WorkOutType {
+export interface WorkOutType {
   id: number;
   name: string;
   image: string;
