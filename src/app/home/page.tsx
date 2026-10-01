@@ -1,4 +1,5 @@
 import HomePageCard from "../components/cards/HomePageCard";
+import { WorkOutType } from "../components/types";
 
 const getSingleData = async (): Promise<WorkOutType[]> => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");

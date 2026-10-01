@@ -12,4 +12,5 @@ export interface WorkOutType {
   rating: number;
   description: string;
   instructions: string[];
+  status?: "done";
 }

@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import IconImg from "@/app/assests/logo.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MdOutlineMenu } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WorkOutsContext } from "../context/WorkOutsProvider";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
   const handleMenuButton = () => {
     setMenuOpen((previousState) => !previousState);
   };
-
+  const { plan } = useContext(WorkOutsContext);
   return (
     <div className="fixed top-0 left-0 right-0 z-50 border-b-3 border-[#1C1F26] bg-black pb-2">
       <div className="flex justify-between items-center px-4 py-2">
@@ -72,7 +73,10 @@ const Navbar = () => {
         {/* Plan & Saved */}
         <div className="flex gap-5 text-[#9CA3AF] text-[14px] font-medium">
           <button className="flex gap-2">
-            Plan <span>0</span>
+            Plan
+            <span className="px-3 py-1 rounded-full bg-[#ccff00] text-black font-bold">
+              {plan.length}
+            </span>
           </button>
 
           <button className="flex gap-2">
