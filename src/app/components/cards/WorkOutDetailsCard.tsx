@@ -2,6 +2,7 @@ import Image from "next/image";
 import { WorkOutType } from "../types";
 import { BiCalendarPlus } from "react-icons/bi";
 import { CiSaveUp2 } from "react-icons/ci";
+import AddPlanButtonPage from "../button/AddPlanButton";
 interface WorkOutDetailsCardProps {
   detailsData: WorkOutType;
 }
@@ -20,6 +21,7 @@ const WorkOutDetailsCard = ({ detailsData }: WorkOutDetailsCardProps) => {
     caloriesBurned,
     rating,
     instructions,
+    id,
   } = detailsData;
   return (
     <div className=" flex flex-col lg:flex-row gap-10">
@@ -70,13 +72,13 @@ const WorkOutDetailsCard = ({ detailsData }: WorkOutDetailsCardProps) => {
             <span>
               <p className="uppercase">duration</p>
             </span>
-            <span>{duration}</span>
+            <span>{`${duration} min`}</span>
           </div>
           <div className=" flex justify-between items-center font-bold text-[12px] text-[#9CA3AF] border-b border-[#252932] px-5 py-2 ">
             <span>
               <p className="uppercase">calories</p>
             </span>
-            <span>{caloriesBurned}</span>
+            <span>{`${caloriesBurned} kcal`}</span>
           </div>
           <div className=" flex justify-between items-center font-bold text-[12px] text-[#9CA3AF] border-b border-[#252932] px-5 py-2 ">
             <span>
@@ -97,10 +99,10 @@ const WorkOutDetailsCard = ({ detailsData }: WorkOutDetailsCardProps) => {
             </ol>
           </div>
           <div className="flex gap-5 mt-7 font-semibold text-[14px]">
-            <button className="flex items-center gap-3 px-3 py-2 bg-[#CCFF00] text-[#0F1115] rounded-xl">
-              <BiCalendarPlus className="text-xl stroke-[1]" />
-              <p>Add to today's plan</p>
-            </button>
+            <AddPlanButtonPage
+              key={id}
+              detailsData={detailsData}
+            ></AddPlanButtonPage>
 
             <button className="flex items-center gap-3 text-white px-3 py-2 border border-[#374151] rounded-xl ">
               <CiSaveUp2 className="text-white stroke-[1] text-xl" />
