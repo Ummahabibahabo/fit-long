@@ -16,7 +16,7 @@ const Navbar = () => {
   const handleMenuButton = () => {
     setMenuOpen((previousState) => !previousState);
   };
-  const { plan } = useContext(WorkOutsContext);
+  const { plan, saved } = useContext(WorkOutsContext);
   return (
     <div className="fixed top-0 left-0 right-0 z-50 border-b-3 border-[#1C1F26] bg-black pb-2">
       <div className="flex justify-between items-center px-4 py-2">
@@ -80,7 +80,10 @@ const Navbar = () => {
           </button>
 
           <button className="flex gap-2">
-            Saved <span>0</span>
+            Saved{" "}
+            <span className="px-3 py-1 rounded-full bg-[#ccff00] text-black font-bold">
+              {saved.length}
+            </span>
           </button>
         </div>
       </div>

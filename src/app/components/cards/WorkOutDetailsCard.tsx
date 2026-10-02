@@ -3,6 +3,7 @@ import { WorkOutType } from "../types";
 import { BiCalendarPlus } from "react-icons/bi";
 import { CiSaveUp2 } from "react-icons/ci";
 import AddPlanButtonPage from "../button/AddPlanButton";
+import SavedPlanButton from "../button/SavedPlanButton";
 interface WorkOutDetailsCardProps {
   detailsData: WorkOutType;
 }
@@ -104,10 +105,10 @@ const WorkOutDetailsCard = ({ detailsData }: WorkOutDetailsCardProps) => {
               detailsData={detailsData}
             ></AddPlanButtonPage>
 
-            <button className="flex items-center gap-3 text-white px-3 py-2 border border-[#374151] rounded-xl ">
-              <CiSaveUp2 className="text-white stroke-[1] text-xl" />
-              <p>Save for later</p>
-            </button>
+            <SavedPlanButton
+              key={detailsData.id}
+              detailsData={detailsData}
+            ></SavedPlanButton>
           </div>
         </div>
       </div>

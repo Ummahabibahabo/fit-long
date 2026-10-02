@@ -1,16 +1,21 @@
 "use client";
-import { useState } from "react";
 
-const SelectedButton = () => {
-  const [selected, setSelected] = useState(false);
-  const handleSelectedButton = () => {
-    setSelected(!selected);
+import React from "react";
+
+interface SelectedButtonProps {
+  selected: boolean;
+  setSelected: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SelectedButton = ({ selected, setSelected }: SelectedButtonProps) => {
+  const handleSelectedButton = (value: boolean) => {
+    setSelected(value);
   };
   return (
     <div className="flex justify-between items-center">
       <div className="bg-[#13161D] border border-[#232732] rounded-xl flex gap-5 mt-10 p-4 ">
         <button
-          onClick={handleSelectedButton}
+          onClick={() => handleSelectedButton(false)}
           className={
             selected
               ? " text-white font-bold"
@@ -20,7 +25,7 @@ const SelectedButton = () => {
           Today's Plan
         </button>
         <button
-          onClick={handleSelectedButton}
+          onClick={() => handleSelectedButton(true)}
           className={
             selected
               ? "bg-[#1F242D] border-4 border-[#232732] rounded-xl px-3 py-2 text-white font-bold"

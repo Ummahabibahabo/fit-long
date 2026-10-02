@@ -6,16 +6,25 @@ import { WorkOutType } from "../types";
 import { toast } from "react-toastify";
 interface RemoveButtonProps {
   workOut: WorkOutType;
+  selected: boolean;
 }
-const RemoveButton = ({ workOut }: RemoveButtonProps) => {
-  const { setPlan } = useContext(WorkOutsContext);
+const RemoveButton = ({ workOut, selected }: RemoveButtonProps) => {
+  const { setPlan, setSaved } = useContext(WorkOutsContext);
   const handleRemoveButton = () => {
-    setPlan((previousPlan) => {
-      return previousPlan.filter((planData) => planData.id !== workOut.id);
-    });
-    toast.success(`${workOut.name} remove from today's plan.`);
-    return;
+    if (selected) {
+      setSaved((previousSaved) => {
+        return previousSaved.filter((savedData) => savedData.id !== workOut.id);
+      });
+      toast.success(`${workOut.name} remove from saved.`);
+      return;
+    } else {
+      setPlan((previousPlan) => {
+        return previousPlan.filter((planData) => planData.id !== workOut.id);
+      });
+      toast.success(`${workOut.name} removed from today's plan`);
+    }
   };
+
   return (
     <div>
       <RiDeleteBin6Line

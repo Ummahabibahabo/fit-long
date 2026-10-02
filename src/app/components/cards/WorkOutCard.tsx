@@ -8,8 +8,9 @@ import RemoveButton from "../button/RemoveButton";
 import MarkAsButton from "../button/MarkAsButton";
 interface WorkOutCardProps {
   workOut: WorkOutType;
+  selected: boolean;
 }
-const WorkOutCard = ({ workOut }: WorkOutCardProps) => {
+const WorkOutCard = ({ workOut, selected }: WorkOutCardProps) => {
   const { image, name, equipment, duration, caloriesBurned, rating, id } =
     workOut;
   return (
@@ -52,8 +53,16 @@ const WorkOutCard = ({ workOut }: WorkOutCardProps) => {
             View Details
           </button>
         </Link>
-        <MarkAsButton key={workOut.id} workOut={workOut}></MarkAsButton>
-        <RemoveButton key={workOut.id} workOut={workOut}></RemoveButton>
+        <MarkAsButton
+          key={workOut.id}
+          workOut={workOut}
+          selected={selected}
+        ></MarkAsButton>
+        <RemoveButton
+          key={workOut.id}
+          workOut={workOut}
+          selected={selected}
+        ></RemoveButton>
       </div>
     </div>
   );
